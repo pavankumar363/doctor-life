@@ -139,3 +139,5 @@ function renderQuiz(){const q=questions[quizIndex];showModal('<div class="quiz-t
 function answerQuiz(k){const q=questions[quizIndex];if(k===q[2])quizScore++;quizIndex++;if(quizIndex<questions.length)renderQuiz();else finishQuiz(false)}
 function selectModel(name){const f=facts[name],info=el("modelInfo");if(!f||!info)return;info.innerHTML='<span class="pill">3D ORGAN MODEL</span><h2>'+f.emoji+' '+f.title+'</h2><p><b>Function:</b> '+f.function+'</p><p><b>Clinical connection:</b> '+f.clinical+'</p><div class="info-hint">💡 <b>Active recall:</b> Explain the organ's main function in your own words.</div>';touchLearning();toast(f.title+' model explored · +10 XP')}
 function initDoctorLife(){updateDashboard();if(el("caseContent"))renderCase()}
+
+function toggleMenu(){const n=document.querySelector('#mainNav')||document.querySelector('.site-header nav');if(n)n.classList.toggle('open')}
