@@ -127,4 +127,15 @@ function dailyMission(){const missions=["Explore one organ in Body Lab.","Comple
 function toast(message){const t=document.querySelector("#toast");t.textContent=message;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200)}
 window.addEventListener("scroll",()=>{const h=document.documentElement.scrollHeight-window.innerHeight;document.querySelector("#scrollProgress").style.width=(window.scrollY/h*100)+"%"});
 window.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
-updateDashboard();renderCase();
+initDoctorLife();
+function el(id){return document.getElementById(id)}
+function updateDashboard(){
+ const s=getState(),level=s.xp>=300?"Clinical Thinker":s.xp>=180?"Future Doctor":s.xp>=80?"Smart Learner":"Starter";
+ const set=(id,v)=>{const e=el(id);if(e)e.textContent=v}; const width=(id,v)=>{const e=el(id);if(e)e.style.width=v};
+ set("heroXp",s.xp);set("heroStreak",s.streak);set("heroBest",s.best+"%");set("practiceBest",s.best+"%");set("best2",s.best+"%");set("streak2",s.streak+" 🔥");set("casesSolved",s.cases);set("level",level);set("xpLabel",s.xp+" XP");width("scoreBar",s.best+"%");width("xpBar",Math.min(100,s.xp%100)+"%");set("performanceText",s.best?("Level: "+level+" · Keep improving your weakest topics."):"Take your first test to unlock your level.");
+}
+function startQuiz(){quizIndex=0;quizScore=0;window.quizSeconds=180;clearInterval(quizTimer);renderQuiz();quizTimer=setInterval(()=>{window.quizSeconds--;const t=el("quizTimer");if(t)t.textContent=Math.floor(window.quizSeconds/60)+":"+String(window.quizSeconds%60).padStart(2,"0");if(window.quizSeconds<=0){clearInterval(quizTimer);finishQuiz(true)}},1000)}
+function renderQuiz(){const q=questions[quizIndex];showModal('<div class="quiz-top"><span class="pill">QUESTION '+(quizIndex+1)+' / '+questions.length+'</span><span class="timer" id="quizTimer">'+Math.floor((window.quizSeconds||180)/60)+':'+String((window.quizSeconds||180)%60).padStart(2,"0")+'</span></div><h2>'+q[0]+'</h2><div>'+q[1].map((o,k)=>'<button class="quiz-option" onclick="answerQuiz('+k+')">'+String.fromCharCode(65+k)+'. '+o+'</button>').join("")+'</div><p class="muted">Choose the best answer. Your result and explanations appear at the end.</p>')}
+function answerQuiz(k){const q=questions[quizIndex];if(k===q[2])quizScore++;quizIndex++;if(quizIndex<questions.length)renderQuiz();else finishQuiz(false)}
+function selectModel(name){const f=facts[name],info=el("modelInfo");if(!f||!info)return;info.innerHTML='<span class="pill">3D ORGAN MODEL</span><h2>'+f.emoji+' '+f.title+'</h2><p><b>Function:</b> '+f.function+'</p><p><b>Clinical connection:</b> '+f.clinical+'</p><div class="info-hint">💡 <b>Active recall:</b> Explain the organ's main function in your own words.</div>';touchLearning();toast(f.title+' model explored · +10 XP')}
+function initDoctorLife(){updateDashboard();if(el("caseContent"))renderCase()}
