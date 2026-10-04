@@ -15,9 +15,7 @@
 <div class="progress-line" id="scrollProgress"></div>
 <header class="site-header">
   <a href="#home" class="brand"><span class="brand-mark">✚</span><span>Doctor Life<small>Future Doctor Academy</small></span></a>
-  <nav id="mainNav">
-    <a href="#home">Home</a><a href="#learn">Learn</a><a href="#practice">Practice</a><a href="#body">Body Lab</a><a href="#cases">Cases</a><a href="#future">Future Medicine</a><a href="#progress">Progress</a>
-  </nav>
+  <nav id="mainNav"><a class="active" href="index.html">Home</a><a href="learn.html">Learn</a><a href="practice.html">Practice</a><a href="body.html">Body Lab</a><a href="cases.html">Cases</a><a href="future.html">Future Medicine</a><a href="progress.html">Progress</a></nav>
   <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
 </header>
 
@@ -30,14 +28,17 @@
     <div class="hero-actions"><button class="primary" onclick="location.hash='learn'">Start Learning <b>→</b></button><button class="secondary" onclick="dailyMission()">Today's Mission <b>✦</b></button></div>
     <div class="trust-row"><span>✓ Interactive learning</span><span>✓ Practice & feedback</span><span>✓ Built for future doctors</span></div>
   </div>
-  <div class="hero-visual">
+  <div class="hero-visual doctor-scene">
     <div class="medical-orbit orbit-a"></div><div class="medical-orbit orbit-b"></div>
-    <div class="hero-card">
-      <div class="pulse">♥</div><span class="mini-label">FUTURE DOCTOR MODE</span><h3>Learn · Practice · Think</h3><p>Your medical journey, one skill at a time.</p>
+    <div class="doctor-figure" aria-label="Animated doctor illustration">
+      <div class="doctor-halo"></div><div class="doctor-head"></div><div class="doctor-body"><span class="stethoscope">⌁</span></div><div class="doctor-coat-left"></div><div class="doctor-coat-right"></div>
+    </div>
+    <div class="hero-card doctor-card">
+      <div class="pulse">✚</div><span class="mini-label">FUTURE DOCTOR MODE</span><h3>Learn · Practice · Think</h3><p>Your medical journey, one skill at a time.</p>
       <div class="mini-stats"><div><strong id="heroXp">0</strong><small>XP earned</small></div><div><strong id="heroStreak">0</strong><small>day streak</small></div><div><strong id="heroBest">0%</strong><small>best score</small></div></div>
     </div>
-    <div class="floating-card float-top">🧠 <b>Active Recall</b><small>Build stronger memory</small></div>
-    <div class="floating-card float-bottom">🫀 <b>Clinical Thinking</b><small>Connect knowledge to cases</small></div>
+    <div class="floating-card float-top">🩺 <b>Clinical Skills</b><small>Build confident thinking</small></div>
+    <div class="floating-card float-bottom">💚 <b>Humanity First</b><small>Knowledge with empathy</small></div>
   </div>
 </section>
 
@@ -102,7 +103,7 @@
 </section>
 </main>
 
-<footer><div class="footer-inner"><div><a class="brand" href="#home"><span class="brand-mark">✚</span><span>Doctor Life<small>Future Doctor Academy</small></span></a><p>Learn with curiosity. Practice with discipline.</p></div><div><b>Explore</b><a href="#learn">Learning Hub</a><a href="#practice">Practice Arena</a><a href="#body">Body Lab</a></div><div><b>Think</b><a href="#cases">Clinical Cases</a><a href="#future">Future Medicine</a><a href="#progress">Progress</a></div></div><div class="footer-bottom">© 2026 Doctor Life · Educational platform · Not a substitute for professional medical advice.</div></footer>
+<footer><div class="footer-inner"><div><a class="brand" href="#home"><span class="brand-mark">✚</span><span>Doctor Life<small>Future Doctor Academy</small></span></a><p>Learn with curiosity. Practice with discipline.</p></div><div><b>Explore</b><a href="learn.html">Learning Hub</a><a href="practice.html">Practice Arena</a><a href="body.html">Body Lab</a></div><div><b>Think</b><a href="cases.html">Clinical Cases</a><a href="future.html">Future Medicine</a><a href="progress.html">Progress</a></div></div><div class="footer-bottom">© 2026 Doctor Life · Educational platform · Not a substitute for professional medical advice.</div></footer>
 
 <div id="modal" hidden><div class="modal-backdrop" onclick="closeModal()"></div><div class="modal" role="dialog" aria-modal="true"><button class="close" onclick="closeModal()" aria-label="Close">×</button><div id="modalContent"></div></div></div>
 <div id="toast" class="toast"></div>
