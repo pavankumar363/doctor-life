@@ -1,13 +1,111 @@
-<!doctype html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Doctor Life | Future Doctor</title><link rel="stylesheet" href="styles.css"></head><body><header><a href="#home" class="brand">✚ Doctor Life</a><nav><a href="#home">Home</a><a href="#learn">Learn</a><a href="#practice">Practice</a><a href="#body">Body Lab</a><a href="#cases">Cases</a><a href="#progress">Progress</a></nav></header><main>
-<section id="home" class="hero"><div><label>YOUR JOURNEY STARTS HERE</label><h1>Train today.<br><span>Heal tomorrow.</span></h1><p>Build the knowledge, practical thinking and discipline needed for the journey to medicine.</p><button class="primary" onclick="location.hash='learn'">Start Learning →</button> <button class="secondary" onclick="location.hash='cases'">Try a Medical Case</button><div class="stats"><b>6 <small>Core subjects</small></b><b>10 <small>Practice MCQs</small></b><b>3 <small>Body hotspots</small></b></div></div><div class="visual"><div class="orb"></div><div class="main-card"><div class="heart">♥</div><b>Future Doctor Mode</b><small>Learn • Practice • Think</small></div><div class="float one">🧠 <b>Active Recall</b></div><div class="float two">🫀 <b>Human Anatomy</b></div></div></section>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Doctor Life — an interactive future-doctor learning platform for science, anatomy, clinical thinking and medical skills.">
+<meta name="theme-color" content="#087ff2">
+<title>Doctor Life | Future Doctor Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="progress-line" id="scrollProgress"></div>
+<header class="site-header">
+  <a href="#home" class="brand"><span class="brand-mark">✚</span><span>Doctor Life<small>Future Doctor Academy</small></span></a>
+  <nav id="mainNav">
+    <a href="#home">Home</a><a href="#learn">Learn</a><a href="#practice">Practice</a><a href="#body">Body Lab</a><a href="#cases">Cases</a><a href="#future">Future Medicine</a><a href="#progress">Progress</a>
+  </nav>
+  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+</header>
 
-<section id="learn" class="light"><div class="wrap"><label>01 · LEARNING</label><h2>Build your medical foundation</h2><p class="muted">Move from science fundamentals to anatomy and clinical thinking.</p><div class="grid"><article class="card"><div class="icon">🧬</div><h3>Biology</h3><p>Cells, genetics, physiology and life processes.</p><button class="link" onclick="openSubject('Biology')">Open subject ↗</button></article><article class="card"><div class="icon">⚗️</div><h3>Chemistry</h3><p>Organic, inorganic and physical chemistry.</p><button class="link" onclick="openSubject('Chemistry')">Open subject ↗</button></article><article class="card"><div class="icon">⚡</div><h3>Physics</h3><p>Mechanics, waves, optics and modern physics.</p><button class="link" onclick="openSubject('Physics')">Open subject ↗</button></article><article class="card"><div class="icon">🫀</div><h3>Anatomy</h3><p>Organs, tissues, body systems and landmarks.</p><button class="link" onclick="openSubject('Anatomy')">Open subject ↗</button></article><article class="card"><div class="icon">🧪</div><h3>Physiology</h3><p>How body systems function together.</p><button class="link" onclick="openSubject('Physiology')">Open subject ↗</button></article><article class="card"><div class="icon">🔬</div><h3>Microbiology</h3><p>Pathogens, immunity and infection.</p><button class="link" onclick="openSubject('Microbiology')">Open subject ↗</button></article></div></div></section>
+<main>
+<section id="home" class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">YOUR FUTURE IN MEDICINE STARTS HERE</span>
+    <h1>Learn science.<br><span>Think like a doctor.</span></h1>
+    <p>Doctor Life turns medical learning into an active experience — learn concepts, explore the human body, solve clinical cases and build real-world skills.</p>
+    <div class="hero-actions"><button class="primary" onclick="location.hash='learn'">Start Learning <b>→</b></button><button class="secondary" onclick="dailyMission()">Today's Mission <b>✦</b></button></div>
+    <div class="trust-row"><span>✓ Interactive learning</span><span>✓ Practice & feedback</span><span>✓ Built for future doctors</span></div>
+  </div>
+  <div class="hero-visual">
+    <div class="medical-orbit orbit-a"></div><div class="medical-orbit orbit-b"></div>
+    <div class="hero-card">
+      <div class="pulse">♥</div><span class="mini-label">FUTURE DOCTOR MODE</span><h3>Learn · Practice · Think</h3><p>Your medical journey, one skill at a time.</p>
+      <div class="mini-stats"><div><strong id="heroXp">0</strong><small>XP earned</small></div><div><strong id="heroStreak">0</strong><small>day streak</small></div><div><strong id="heroBest">0%</strong><small>best score</small></div></div>
+    </div>
+    <div class="floating-card float-top">🧠 <b>Active Recall</b><small>Build stronger memory</small></div>
+    <div class="floating-card float-bottom">🫀 <b>Clinical Thinking</b><small>Connect knowledge to cases</small></div>
+  </div>
+</section>
 
-<section id="practice"><div class="wrap"><label>02 · PRACTICE</label><h2>Practice like an exam.</h2><p class="muted">Instant feedback and browser-saved progress.</p><div class="panel"><div><span class="pill">NEET MINI TEST</span><h3>10 questions · Mixed science</h3><p>Take a quick test and keep your best score on this device.</p><button class="primary" onclick="startQuiz()">Start test</button></div><div class="score"><strong id="best">0%</strong><small>Best score</small></div></div></div></section>
+<section class="quick-strip"><div class="quick-item"><strong>06</strong><span>Core subjects</span></div><div class="quick-item"><strong>20+</strong><span>Practice questions</span></div><div class="quick-item"><strong>08</strong><span>Body systems</span></div><div class="quick-item"><strong>04</strong><span>Clinical cases</span></div><div class="quick-item"><strong>∞</strong><span>Skills to discover</span></div></section>
 
-<section id="body" class="light"><div class="wrap"><label>03 · BODY LAB</label><h2>Explore the human body</h2><p class="muted">Select a hotspot to connect structure, function and clinical relevance.</p><div class="body-lab"><div class="person"><div class="head">◯</div><div class="torso"></div><button onclick="bodyFact('Brain')" class="hot brain">🧠</button><button onclick="bodyFact('Heart')" class="hot heart">🫀</button><button onclick="bodyFact('Lungs')" class="hot lungs">🫁</button></div><div id="bodyInfo" class="body-info"><span class="pill">SELECT AN ORGAN</span><h3>Human Body Explorer</h3><p>Choose the brain, heart or lungs.</p></div></div></div></section>
+<section id="learn" class="section light">
+<div class="wrap"><div class="section-heading"><div><span class="eyebrow">01 · LEARNING HUB</span><h2>Build your medical foundation</h2><p>Start with the sciences, then connect them to the human body and clinical reasoning.</p></div><div class="search-box"><span>⌕</span><input id="subjectSearch" oninput="filterSubjects()" placeholder="Search a subject..." aria-label="Search subjects"></div></div>
+<div id="subjectGrid" class="grid">
+<article class="card subject-card" data-subject="Biology" onclick="openSubject('Biology')"><div class="icon">🧬</div><span class="card-tag">FOUNDATION</span><h3>Biology</h3><p>Cells, genetics, evolution and the science of life.</p><button class="link">Explore path →</button></article>
+<article class="card subject-card" data-subject="Chemistry" onclick="openSubject('Chemistry')"><div class="icon">⚗️</div><span class="card-tag">FOUNDATION</span><h3>Chemistry</h3><p>Atoms, bonding, reactions and chemistry in medicine.</p><button class="link">Explore path →</button></article>
+<article class="card subject-card" data-subject="Physics" onclick="openSubject('Physics')"><div class="icon">⚡</div><span class="card-tag">FOUNDATION</span><h3>Physics</h3><p>Motion, energy, waves, optics and medical physics.</p><button class="link">Explore path →</button></article>
+<article class="card subject-card" data-subject="Anatomy" onclick="openSubject('Anatomy')"><div class="icon">🫀</div><span class="card-tag">MEDICAL CORE</span><h3>Anatomy</h3><p>Organs, tissues, landmarks and body systems.</p><button class="link">Explore path →</button></article>
+<article class="card subject-card" data-subject="Physiology" onclick="openSubject('Physiology')"><div class="icon">🧪</div><span class="card-tag">MEDICAL CORE</span><h3>Physiology</h3><p>Understand how the body's systems work together.</p><button class="link">Explore path →</button></article>
+<article class="card subject-card" data-subject="Microbiology" onclick="openSubject('Microbiology')"><div class="icon">🔬</div><span class="card-tag">MEDICAL CORE</span><h3>Microbiology</h3><p>Pathogens, infection, immunity and prevention.</p><button class="link">Explore path →</button></article>
+</div></div>
+</section>
 
-<section id="cases"><div class="wrap"><label>04 · CLINICAL THINKING</label><h2>Step into the case.</h2><p class="muted">Educational simulation only — real symptoms need qualified medical care.</p><div class="case card"><span class="pill">CASE #01</span><h3>“I feel my heart racing.”</h3><p>A 17-year-old student has episodes of a fast heartbeat during exam preparation. What information should be explored first?</p><button onclick="caseAnswer(0)">Ask about sleep, caffeine and stress</button><button onclick="caseAnswer(1)">Ask only about recent injuries</button><button onclick="caseAnswer(2)">Immediately guess the diagnosis</button><div id="caseResult"></div></div></div></section>
+<section id="practice" class="section">
+<div class="wrap"><div class="section-heading"><div><span class="eyebrow">02 · PRACTICE ARENA</span><h2>Turn knowledge into performance</h2><p>Short tests, instant feedback and progress that stays on this device.</p></div></div>
+<div class="practice-grid"><div class="practice-main"><span class="pill dark-pill">MEDICAL FOUNDATION TEST</span><h3>Challenge yourself</h3><p>20 mixed questions covering Biology, Chemistry, Physics, Anatomy and Physiology.</p><div class="feature-row"><span>⏱ Timed</span><span>✓ Instant results</span><span>↗ Progress saved</span></div><button class="primary" onclick="startQuiz()">Start practice test →</button></div>
+<div class="performance-card"><span class="eyebrow">YOUR PERFORMANCE</span><strong id="practiceBest">0%</strong><span>Best score</span><div class="bar"><i id="scoreBar"></i></div><small id="performanceText">Take your first test to unlock your level.</small></div></div></div>
+</section>
 
-<section id="progress" class="light"><div class="wrap"><label>05 · PROGRESS</label><h2>Your future-doctor dashboard</h2><div class="grid progress"><div class="card"><span>Best test score</span><strong id="best2">0%</strong></div><div class="card"><span>Journey level</span><strong id="level">Starter</strong></div><div class="card"><span>Next mission</span><strong>20 min Biology</strong></div></div></div></section>
-</main><footer>🩺 Doctor Life — Learn with curiosity. Practice with discipline.</footer><div id="modal" hidden><div class="modal"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div><script src="script.js"></script></body></html>
+<section id="body" class="section light">
+<div class="wrap"><span class="eyebrow">03 · BODY LAB</span><h2>Explore the human body</h2><p class="section-lead">Select a system to connect structure, function and clinical relevance.</p>
+<div class="body-lab">
+<div class="body-map"><div class="body-silhouette"><div class="body-head"></div><div class="body-neck"></div><div class="body-torso"></div><div class="body-arm left"></div><div class="body-arm right"></div></div>
+<button class="body-hotspot hs-brain" onclick="bodyFact('Brain')">🧠</button><button class="body-hotspot hs-heart" onclick="bodyFact('Heart')">🫀</button><button class="body-hotspot hs-lungs" onclick="bodyFact('Lungs')">🫁</button><button class="body-hotspot hs-kidney" onclick="bodyFact('Kidneys')">🫘</button></div>
+<div id="bodyInfo" class="body-info"><span class="pill">BODY EXPLORER</span><h3>Choose an organ system</h3><p>Start with the brain, heart, lungs or kidneys. Each hotspot gives you a concise structure → function → clinical connection.</p><div class="info-hint">💡 <b>Learning tip:</b> Try explaining the organ's function in your own words after reading it.</div></div>
+</div></div>
+</section>
+
+<section id="cases" class="section">
+<div class="wrap"><span class="eyebrow">04 · CLINICAL THINKING</span><h2>Step into the case</h2><p class="section-lead">Learn how clinicians gather information before forming a conclusion. Educational simulation only.</p>
+<div class="case-shell"><div class="case-progress"><span>CASE SIMULATOR</span><b id="caseNumber">01</b><div class="case-dots"><i class="active"></i><i></i><i></i><i></i></div></div>
+<div id="caseContent"><span class="pill">CASE #01 · HISTORY</span><h3>“I feel my heart racing.”</h3><p>A 17-year-old student reports episodes of a fast heartbeat during exam preparation. What should be explored first?</p><div class="case-options"><button onclick="caseAnswer(0)">A <span>Ask about sleep, caffeine, stress and episode pattern</span></button><button onclick="caseAnswer(1)">B <span>Ask only about recent injuries</span></button><button onclick="caseAnswer(2)">C <span>Immediately guess the diagnosis</span></button></div><div id="caseResult"></div></div></div>
+</div>
+</section>
+
+<section id="future" class="section future-section">
+<div class="wrap"><div class="section-heading"><div><span class="eyebrow">05 · FUTURE MEDICINE</span><h2>Skills beyond the textbook</h2><p>Explore the technologies and human skills shaping tomorrow's healthcare.</p></div></div>
+<div class="future-grid">
+<article onclick="futureSkill('AI in Medicine','Learn how artificial intelligence supports medical imaging, research and clinical workflows — while keeping humans responsible for decisions.')">🤖<b>AI in Medicine</b><span>Technology + healthcare</span></article>
+<article onclick="futureSkill('Medical Robotics','Discover how robotic systems can support precision, rehabilitation and minimally invasive procedures.')">🦾<b>Medical Robotics</b><span>Precision + engineering</span></article>
+<article onclick="futureSkill('Genomics','Explore how DNA, genetic variation and personalised medicine are changing prevention and treatment.')">🧬<b>Genomics</b><span>DNA + personalised care</span></article>
+<article onclick="futureSkill('Digital Health','Understand telemedicine, wearable sensors, health data and the future of connected care.')">⌚<b>Digital Health</b><span>Data + connected care</span></article>
+<article onclick="futureSkill('Medical Research','Build the habits of a researcher: ask good questions, evaluate evidence and communicate findings.')">🔬<b>Medical Research</b><span>Evidence + discovery</span></article>
+<article onclick="futureSkill('Medical Ethics','Learn why empathy, consent, privacy, fairness and responsible decisions matter in medicine.')">⚖️<b>Medical Ethics</b><span>Humanity + responsibility</span></article>
+</div></div>
+</section>
+
+<section id="progress" class="section light">
+<div class="wrap"><span class="eyebrow">06 · YOUR DASHBOARD</span><h2>Your future-doctor progress</h2><p class="section-lead">Your activity is saved locally in this browser. No account is required.</p>
+<div class="dashboard-grid">
+<div class="dashboard-card highlight"><span>LEVEL</span><strong id="level">Starter</strong><small id="xpLabel">0 XP</small><div class="xp-track"><i id="xpBar"></i></div></div>
+<div class="dashboard-card"><span>BEST SCORE</span><strong id="best2">0%</strong><small>Practice tests</small></div>
+<div class="dashboard-card"><span>STREAK</span><strong id="streak2">0 🔥</strong><small>Learning days</small></div>
+<div class="dashboard-card"><span>CASES SOLVED</span><strong id="casesSolved">0</strong><small>Clinical thinking</small></div>
+</div>
+<div class="mission-card"><div><span class="eyebrow">TODAY'S MISSION</span><h3>Complete one learning action</h3><p id="missionText">Take a practice test or explore a body system to earn your first XP.</p></div><button class="secondary" onclick="dailyMission()">View mission →</button></div>
+</div>
+</section>
+</main>
+
+<footer><div class="footer-inner"><div><a class="brand" href="#home"><span class="brand-mark">✚</span><span>Doctor Life<small>Future Doctor Academy</small></span></a><p>Learn with curiosity. Practice with discipline.</p></div><div><b>Explore</b><a href="#learn">Learning Hub</a><a href="#practice">Practice Arena</a><a href="#body">Body Lab</a></div><div><b>Think</b><a href="#cases">Clinical Cases</a><a href="#future">Future Medicine</a><a href="#progress">Progress</a></div></div><div class="footer-bottom">© 2026 Doctor Life · Educational platform · Not a substitute for professional medical advice.</div></footer>
+
+<div id="modal" hidden><div class="modal-backdrop" onclick="closeModal()"></div><div class="modal" role="dialog" aria-modal="true"><button class="close" onclick="closeModal()" aria-label="Close">×</button><div id="modalContent"></div></div></div>
+<div id="toast" class="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
